@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Task;
+use App\Models\Task;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,11 @@ use Illuminate\Http\Request;
 
 //顯示所有任務的清單
 Route::get('/', function () {
-    return view('tasks');
+    $tasks = Task::orderBy('created_at', 'asc')->get();
+
+    return view('tasks', [ 'tasks' => $tasks ]);
+
+
 });
 // 增加新的任務
 Route::post('/task', function (Request $request) {

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Task;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//顯示所有任務的清單
 Route::get('/', function () {
-    return view('welcome');
+    //
 });
+// 增加新的任務
+Route::post('/task', function (Request $request) {
+    //
+});
+// 刪除任務
+Route::delete('/task/{task}', function (Task $task) {
+    //
+});
+
